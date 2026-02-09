@@ -1,0 +1,27 @@
+/* Το εφέ που κάνει την κάρτα να σηκώνεται όταν περνάς το ποντίκι */
+.user-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  border-radius: 15px;
+}
+
+.user-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+}
+
+/* Το κύκλο με τα αρχικά (Avatar) */
+.avatar-circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+}
+
+/* Styling για τα badges */
+.badge {
+  font-weight: 500;
+  padding: 0.5em 1em;
+}

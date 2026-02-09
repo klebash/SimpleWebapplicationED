@@ -1,0 +1,96 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+      <div class="card shadow">
+        <div class="card-header bg-primary text-white text-center">
+          <h3 class="mb-0">User Registration</h3>
+        </div>
+
+        <div class="card-body">
+          <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+
+            <div class="mb-3">
+              <label class="form-label font-weight-bold">Name <span class="text-danger">*</span></label>
+              <input
+                type="text"
+                class="form-control"
+                [(ngModel)]="user.firstName"
+                name="firstName"
+                required
+                #fName="ngModel"
+                [class.is-invalid]="fName.invalid && fName.touched">
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Surname<span class="text-danger">*</span></label>
+              <input
+                type="text"
+                class="form-control"
+                [(ngModel)]="user.lastName"
+                name="lastName"
+                required
+                #lName="ngModel"
+                [class.is-invalid]="lName.invalid && lName.touched">
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Gender<span class="text-danger">*</span></label>
+              <select
+                class="form-select"
+                [(ngModel)]="user.gender"
+                name="gender"
+                required>
+                <option value="" disabled>Select...</option>
+                <option value="M">M (Male)</option>
+                <option value="F">F (Female)</option>
+              </select>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Birthdate<span class="text-danger">*</span></label>
+              <input
+                type="date"
+                class="form-control"
+                [(ngModel)]="user.birthDate"
+                name="birthDate"
+                required>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Home Address</label>
+              <textarea
+                class="form-control"
+                [(ngModel)]="homeAddressText"
+                name="homeAddress"
+                rows="1"
+                placeholder=""></textarea>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Work Address</label>
+              <textarea
+                class="form-control"
+                [(ngModel)]="workAddressText"
+                name="workAddress"
+                rows="1"
+                placeholder=""></textarea>
+            </div>
+
+            <div class="d-flex justify-content-end gap-2 mt-4">
+              <button type="button" routerLink="/" class="btn btn-secondary">
+                Cancel
+              </button>
+              <button
+                type="submit"
+                class="btn btn-primary"
+                [disabled]="userForm.invalid">
+                Save User
+              </button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

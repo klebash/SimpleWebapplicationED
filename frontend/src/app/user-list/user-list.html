@@ -1,0 +1,77 @@
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+      <h2 class="fw-bold text-dark mb-0">User Management</h2>
+      <p class="text-muted">Manage and view all registered profiles</p>
+    </div>
+    <button class="btn btn-primary btn-lg rounded-pill shadow-sm px-4" routerLink="/register">
+      <i class="bi bi-person-plus-fill me-2"></i> + Add Member
+    </button>
+  </div>
+
+<div class="card border-0 shadow-sm mb-5 bg-white filter-card">
+    <div class="card-body p-4">
+      <div class="row align-items-center">
+        <div class="col-12">
+          <label class="form-label fw-bold text-secondary small text-uppercase mb-2">
+            <i class="bi bi-funnel-fill me-1"></i> Quick Filter
+          </label>
+          <div class="input-group input-group-lg custom-search-group">
+            <span class="input-group-text bg-light border-0 px-3">
+              <i class="bi bi-search text-muted"></i>
+            </span>
+            <input type="text" 
+                   class="form-control bg-light border-0 shadow-none ps-0" 
+                   [(ngModel)]="searchTerm"
+                    placeholder="Search by first name or surname"
+                   (input)="filterUsers()">
+          </div>
+          <div class="form-text mt-2 text-muted small">
+            {{ filteredUsers.length }} users
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row g-4">
+    @for (user of filteredUsers; track user.id) {
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm border-0 user-card" (click)="viewDetails(user.id!)">
+          <div class="card-body p-4">
+            <div class="d-flex align-items-center mb-3">
+              <div class="avatar-circle me-3 bg-primary text-white d-flex align-items-center justify-content-center">
+                {{ user.firstName[0] }}{{ user.lastName[0] }}
+              </div>
+              <div>
+                <h5 class="card-title mb-0 fw-bold">{{ user.firstName }} {{ user.lastName }}</h5>
+                <small class="text-muted">Member ID: #{{ user.id }}</small>
+              </div>
+            </div>
+            
+            <p class="card-text mb-4">
+              <span class="badge rounded-pill bg-light text-dark border me-2">
+                {{ user.gender === 'M' ? 'Male' : 'Female' }}
+              </span>
+              <span class="text-muted small">
+                <i class="bi bi-calendar-event me-1"></i> {{ user.birthDate }}
+              </span>
+            </p>
+
+            <div class="d-flex justify-content-between align-items-center pt-3 border-top">
+              <span class="text-primary small fw-bold">View Profile →</span>
+              <button class="btn btn-link text-danger p-0" (click)="onDelete(user.id!); $event.stopPropagation()">
+                <i class="bi bi-trash3"></i> Delete
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    } @empty {
+      <div class="col-12 text-center py-5">
+        <div class="display-1 text-muted opacity-25">📁</div>
+        <h4 class="text-muted">No users found. Start by adding a new one!</h4>
+      </div>
+    }
+  </div>
+</div>

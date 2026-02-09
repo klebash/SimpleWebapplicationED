@@ -1,0 +1,31 @@
+<div class="container mt-5">
+  @if (user) {
+    <div class="card shadow">
+      <div class="card-header bg-primary text-white">
+        <h3 class="mb-0">{{ user.firstName }} {{ user.lastName }}</h3>
+      </div>
+      <div class="card-body">
+        <p><strong>Gender:</strong> {{ user.gender === 'M' ? 'Male' : 'Female' }}</p>
+        <p><strong>Birth Date:</strong> {{ user.birthDate }}</p>
+        
+        <hr>
+        <h5>Addresses:</h5>
+        <ul class="list-group">
+          @for (addr of user.addresses; track addr.id) {
+            <li class="list-group-item">
+              <span class="badge bg-info me-2">{{ addr.addressType }}</span>
+              {{ addr.addressText }}
+            </li>
+          }
+        </ul>
+      </div>
+    </div>
+    <div class="container mt-3 text-end">
+  <button class="btn btn-secondary shadow-sm" onclick="window.close()">
+    <i class="bi bi-x-circle"></i> Close Tab
+  </button>
+</div>
+  } @else {
+    <div class="alert alert-info">Φορτώνω τα στοιχεία του χρήστη...</div>
+  }
+</div>
