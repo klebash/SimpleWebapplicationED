@@ -1,53 +1,80 @@
-# 👥 User Management System
+# User Management System (Full-Stack)
 
-Μια πλήρης Full-Stack εφαρμογή για τη διαχείριση χρηστών, χτισμένη με **Spring Boot (Java)** στο Backend και **Angular** στο Frontend.
-
-## 🚀 Χαρακτηριστικά
-* **Πλήρες CRUD:** Δημιουργία, Προβολή, και Διαγραφή χρηστών.
-* **Δυναμικές Διευθύνσεις:** Προσθήκη πολλαπλών διευθύνσεων (Home/Work) ανά χρήστη.
-* **Live Filtering:** Αναζήτηση χρηστών σε πραγματικό χρόνο.
-* **Responsive UI:** Μοντέρνος σχεδιασμός με Bootstrap 5.
+This project features a **Spring Boot** REST API backend and an **Angular 17+** frontend with a responsive, card-based UI.
 
 ---
 
-## 🛠️ Προαπαιτούμενα
-Πριν ξεκινήσετε, βεβαιωθείτε ότι έχετε εγκαταστήσει:
-* **Java 17** ή νεότερη
-* **Node.js** (v18+) & **npm**
-* **Angular CLI** (`npm install -g @angular/cli`)
-* **MySQL Server**
+##  Tech Stack
+
+### Frontend
+* **Angular 17** (Standalone Components)
+* **Bootstrap 5** (UI Components & Layout)
+* **Bootstrap Icons**
+* **TypeScript**
+
+### Backend
+* **Java 17**
+* **Spring Boot 3**
+* **Spring Data JPA** (Hibernate)
+* **MySQL** (Database)
+
+### Build Tools
+* **Maven** (Backend)
+* **npm** (Frontend)
 
 ---
 
-## 📂 Οδηγίες Εγκατάστασης & Λειτουργίας
+## Features
 
-### 1. Backend (Spring Boot)
-1.  Πλοηγηθείτε στον φάκελο: `cd SimpleWebAppBackend`
-2.  Ρυθμίστε τη σύνδεση της βάσης δεδομένων στο αρχείο `src/main/resources/application.properties` (Database name, username, password).
-3.  Τρέξτε την εφαρμογή:
-    ```bash
-    ./mvnw spring-boot:run
-    ```
-    *Το API θα τρέχει στο: `http://localhost:8080`*
-
-### 2. Frontend (Angular)
-1.  Πλοηγηθείτε στον φάκελο: `cd Your-Angular-Folder-Name`
-2.  Εγκαταστήστε τις βιβλιοθήκες:
-    ```bash
-    npm install
-    ```
-3.  Εκκινήστε τον server:
-    ```bash
-    ng serve
-    ```
-    *Η εφαρμογή θα είναι διαθέσιμη στο: `http://localhost:4200`*
+* **Home Dashboard:** A centered, professional entry point for the application.
+* **Display User List:** Displays users as interactive cards with auto-generated avatars.
+* **Real-time Filter:** A dedicated search bar card that filters users by first or last name instantly as you type.
+* **Dynamic Registration Form**
+* **User Details:** View  user profiles including all registered addresses.
 
 ---
 
-## 🗄️ Βάση Δεδομένων
-Η εφαρμογή δημιουργεί αυτόματα τους πίνακες (Hibernate ddl-auto). Θα χρειαστεί απλώς να δημιουργήσετε μια κενή βάση δεδομένων στη MySQL με το όνομα που ορίσατε στο `application.properties`.
-
 ---
 
-## 📸 Screenshots
-*(Εδώ μπορείς αργότερα να προσθέσεις screenshots από τη δική σου εφαρμογή)*
+##  Installation & Setup
+
+### 1. Database Setup
+Ensure you have MySQL installed. Open your MySQL terminal or Workbench and run:
+```sql
+CREATE DATABASE user_db;
+```
+### 2. Backend Configuration (Spring Boot)
+Navigate to the backend folder:
+```bash
+cd SimpleWebAppBackend
+```
+Update your MySQL credentials in the application properties file:
+src/main/resources/application.properties
+
+Properties
+```
+spring.datasource.url=jdbc:mysql://localhost:3306/user_db
+spring.datasource.username=YOUR_MYSQL_USERNAME
+spring.datasource.password=YOUR_MYSQL_PASSWORD
+spring.jpa.hibernate.ddl-auto=update
+```
+### 3.Run the Spring Boot application:
+```Bash
+./mvnw spring-boot:run
+```
+### 4.Frontend Configuration (Angular)
+Navigate to the frontend folder:
+
+```Bash
+cd Your-Angular-Project-Folder
+```
+Install the necessary dependencies:
+
+```Bash
+npm install
+```
+
+Start the Angular development server:
+```Bash
+ng serve -o
+```
