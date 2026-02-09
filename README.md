@@ -7,9 +7,8 @@ This project features a **Spring Boot** REST API backend and an **Angular** fron
 ##  Tech Stack
 
 ### Frontend
-* **Angular 17** (Standalone Components)
-* **Bootstrap 5** (UI Components & Layout)
-* **Bootstrap Icons**
+* **Angular **
+* **Bootstrap ** 
 * **TypeScript**
 
 ### Backend
