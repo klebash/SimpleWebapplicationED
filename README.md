@@ -1,6 +1,6 @@
 # User Management System (Full-Stack)
 
-This project features a **Spring Boot** REST API backend and an **Angular 17+** frontend with a responsive, card-based UI.
+This project features a **Spring Boot** REST API backend and an **Angular** frontend with a responsive, card-based UI.
 
 ---
 
