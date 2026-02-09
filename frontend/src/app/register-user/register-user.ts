@@ -39,7 +39,7 @@ export class RegisterUser {
     this.userService.saveUser(this.user).subscribe({
       next: (data) => {
         console.log('User registered successfully!', data);
-        this.router.navigate(['/users']); // Μόλις τελειώσει, πήγαινε στη λίστα
+        this.router.navigate(['/users']); 
       },
       error: (error) => console.error('Error during registration', error)
     });

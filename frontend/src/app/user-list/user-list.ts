@@ -37,7 +37,6 @@ export class UserList implements OnInit{
     if (confirm('Είσαι σίγουρος ότι θέλεις να διαγράψεις αυτόν τον χρήστη;')) {
       this.userService.deleteUser(id).subscribe({
         next: () => {
-          // Αφαιρούμε τον χρήστη από τη λίστα που βλέπουμε στην οθόνη
           this.users = this.users.filter(u => u.id !== id);
           this.cdr.detectChanges();
           this.filterUsers();
@@ -53,13 +52,11 @@ export class UserList implements OnInit{
   viewDetails(id: number | undefined) {
   if (id === undefined) return;
 
-  // Δημιουργούμε το σωστό URL βασισμένο στο routing μας
   const url = this.router.serializeUrl(
     this.router.createUrlTree(['/user-details', id])
   );
-  // Πλοηγούμαστε στη σελίδα των λεπτομερειών
   
-  window.open(url, '_blank'); // Άνοιγμα σε νέα καρτέλα
+  window.open(url, '_blank'); 
 }
 
   filterUsers() {
