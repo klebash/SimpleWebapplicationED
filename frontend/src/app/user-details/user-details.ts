@@ -21,13 +21,10 @@ export class UserDetails implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // Χρησιμοποιούμε το paramMap.subscribe για να είμαστε σίγουροι ότι θα "πιάσουμε" το ID
     this.route.paramMap.subscribe(params => {
       const idParam = params.get('id');
       if (idParam) {
         this.currentId = Number(idParam);
-        console.log('Ανάγνωση ID από URL:', this.currentId);
-        
         this.loadUserDetails(this.currentId);
       }
     });
@@ -36,12 +33,11 @@ export class UserDetails implements OnInit {
   loadUserDetails(id: number) {
     this.userService.getUserById(id).subscribe({
       next: (data) => {
-        console.log('Δεδομένα από MySQL:', data);
         this.user = data;
         this.cdr.detectChanges();
       },
       error: (err: any) => {
-        console.error('Σφάλμα API:', err);
+        console.error('API Error:', err);
       }
     });
   }

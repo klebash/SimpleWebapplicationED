@@ -13,8 +13,8 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './user-list.css',
 })
 export class UserList implements OnInit{
-  users: User[] = []; // Εδώ θα αποθηκευτούν οι χρήστες από τη MySQL
-  filteredUsers: User[] = [];   // Αυτοί που βλέπει ο χρήστης
+  users: User[] = []; 
+  filteredUsers: User[] = [];   
   searchTerm: string = ''; 
   constructor(private userService: UserService,private cdr: ChangeDetectorRef,private router: Router) {}
 
@@ -34,16 +34,16 @@ export class UserList implements OnInit{
   }
 
   onDelete(id: number) {
-    if (confirm('Είσαι σίγουρος ότι θέλεις να διαγράψεις αυτόν τον χρήστη;')) {
+    if (confirm('Do you want to delete this user?')) {
       this.userService.deleteUser(id).subscribe({
         next: () => {
           this.users = this.users.filter(u => u.id !== id);
-          this.cdr.detectChanges();
           this.filterUsers();
+          this.cdr.detectChanges();
         },
         error: (err: any) => {
           console.error('Error deleting user', err);
-          alert('Αποτυχία διαγραφής. Ελέγξτε αν το Backend υποστηρίζει Delete.');
+          alert('Failed to delete user. Check if the backend supports DELETE.');
         }
       });
     }
